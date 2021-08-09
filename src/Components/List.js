@@ -1,7 +1,8 @@
-function List() {
+function List(props) {
   return (
     <div className="card">
-      <h2>TITLE</h2>
+      <h2>{props.title}</h2>
+      <h3>Author: {props.author}</h3>
       <div className="actions">
         <button className="btn">Delete</button>
       </div>
