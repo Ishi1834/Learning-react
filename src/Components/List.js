@@ -1,6 +1,13 @@
+import { useState } from "react";
+import Modal from "./Modal";
+import Backdrop from "./Backdrop";
 function List(props) {
+  const [modalIsOpen, setmodalIsOpen] = useState(false);
   function deleteHandler() {
-    return console.log("delete requested");
+    setmodalIsOpen(true);
+  }
+  function closeModalHandler() {
+    setmodalIsOpen(false);
   }
   return (
     <div className="card">
@@ -11,6 +18,10 @@ function List(props) {
           Delete
         </button>
       </div>
+      {modalIsOpen ? (
+        <Modal onNo={closeModalHandler} onYes={closeModalHandler} />
+      ) : null}
+      {modalIsOpen ? <Backdrop onCancel={closeModalHandler} /> : null}
     </div>
   );
 }
