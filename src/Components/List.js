@@ -9,14 +9,17 @@ function List(props) {
   function closeModalHandler() {
     setmodalIsOpen(false);
   }
+
   return (
     <div className="card">
-      <h2>{props.title}</h2>
-      <h3>Author: {props.author}</h3>
-      <div className="actions">
-        <button className="btn" onClick={deleteHandler}>
-          Delete
-        </button>
+      <div>
+        <h2>{props.title}</h2>
+        <h3>Author: {props.author}</h3>
+        <div className="actions">
+          <button className="btn" onClick={deleteHandler}>
+            Delete
+          </button>
+        </div>
       </div>
       {modalIsOpen ? (
         <Modal onNo={closeModalHandler} onYes={closeModalHandler} />
